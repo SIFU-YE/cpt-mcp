@@ -1,0 +1,17 @@
+{
+  "_comment": "cpt-mcp 只读 SQL 执行的数据连接配置（run_dataset_sql_check 用）。复制为 db-connections.json 后填真实值；该文件已在 .gitignore，切勿提交。键名要与 .cpt 数据集里的『数据连接名』一致（见 get_datasets 的 connection 字段）。",
+  "Doris": {
+    "host": "doris.example.internal",
+    "port": 39030,
+    "user": "readonly_user",
+    "password": "CHANGE_ME",
+    "database": "bi_ods"
+  },
+  "MySQL": {
+    "host": "mysql.example.internal",
+    "port": 3306,
+    "user": "readonly_user",
+    "password": "CHANGE_ME",
+    "database": "dw_marketing"
+  }
+}

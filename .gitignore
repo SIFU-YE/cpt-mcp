@@ -1,0 +1,24 @@
+node_modules/
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+demo/
+.decompiled/
+.fr-engine-check/
+.reasonix/
+.mimosa/
+tmp_test/
+*.cpt.meta.json
+.workbuddy/
+# AgentTeams 团队状态（运行期临时产物，不入库）
+.agent-teams/
+# 数据连接凭据（run_dataset_sql_check 用；含密码，绝不入库）
+db-connections.json
+# 本地独立 FR 预览实例（runtime 配置/日志 + finedb 种子含数据连接密码，绝不入库）
+.fr-preview/
+# 内置 SQLite 本地测试库（.sqlite 二进制 + 真实库抽样数据 + localdb.json 映射；数据样例可能含业务信息，绝不入库）
+.cpt-mcp/
+# 敏感资料已迁出到 system/private-data（本地目录链接，不提交）
+/docs/

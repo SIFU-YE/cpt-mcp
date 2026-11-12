@@ -1,0 +1,48 @@
+{
+  "name": "cpt-mcp",
+  "version": "1.0.0",
+  "description": "CPT 报表文件增删改查+校验 MCP（自包含，不依赖其他 MCP）",
+  "main": "server.js",
+  "bin": {
+    "cpt-mcp": "server.js",
+    "cpt-mcp-focused": "server-focused.js",
+    "cpt-mcp-full": "server-full.js",
+    "cpt-mcp-generate": "server-generate.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "start:focused": "node server-focused.js",
+    "start:full": "node server-full.js",
+    "start:generate": "node server-generate.js",
+    "token:baseline": "node --import ./scripts/isolate-store.mjs scripts/token-baseline.mjs",
+    "token:budget": "node --import ./scripts/isolate-store.mjs scripts/token-budget.mjs",
+    "check:secrets": "node scripts/scan-secrets.mjs",
+    "check:secrets:all": "node scripts/scan-secrets.mjs --include-docs",
+    "test": "node --import ./scripts/isolate-store.mjs --test",
+    "review": "node scripts/review-regression.mjs",
+    "review:gate": "node --import ./scripts/isolate-store.mjs scripts/review-gate.mjs",
+    "test:golden": "node --import ./scripts/isolate-store.mjs --test test/golden.test.js",
+    "test:golden:update": "node scripts/golden-update.mjs",
+    "test:behavior": "node --import ./scripts/isolate-store.mjs scripts/behavior-regression.mjs",
+    "test:acceptance": "node --import ./scripts/isolate-store.mjs scripts/acceptance.mjs",
+    "verify:all": "npm test && npm run verify:mcp && npm run verify:mcp:report && npm run test:behavior && npm run test:acceptance && npm run test:golden",
+    "verify:mcp": "node --import ./scripts/isolate-store.mjs scripts/verify-mcp.mjs",
+    "verify:mpc": "node --import ./scripts/isolate-store.mjs scripts/verify-mcp.mjs",
+    "verify:fr": "node scripts/verify-fr-engine.mjs",
+    "verify:mcp:report": "node --import ./scripts/isolate-store.mjs scripts/verify-mcp-report.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SIFU-YE/cpt-mcp.git"
+  },
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "fast-xml-parser": "^5.10.1",
+    "mysql2": "^3.24.6",
+    "node-cron": "^4.6.0"
+  }
+}
